@@ -14,13 +14,13 @@ import matplotlib.pyplot as plt
 #dados de entrada
 contorno = gpd.read_file("../shp/batimetria/GEBCO_SA_bath_contours.shp")
 contorno = contorno.set_crs(epsg = "4326", inplace = True, allow_override = True)
-PR3 = pd.read_excel("../inputs/Ldagua.xlsx",header = 0 ,# index_col = 0, 
-                          usecols = ['Nome','LATITUDE_BASE_DD','LONGITUDE_BASE_DD'] )
+PR3 = pd.read_excel("../inputs/Poços_GIS.xlsx",header = 0 ,# index_col = 0, 
+                          usecols = ['Nome','LATITUDE','LONGITUDE'] )
 
 #Transforma em um geodataframe
 PR3 = gpd.GeoDataFrame(PR3,
             geometry = 
-            gpd.points_from_xy(x=PR3.LONGITUDE_BASE_DD, y=PR3.LATITUDE_BASE_DD),
+            gpd.points_from_xy(x=PR3.LONGITUDE, y=PR3.LATITUDE),
             crs = "EPSG:4326"
             )
 
