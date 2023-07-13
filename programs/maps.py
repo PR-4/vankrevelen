@@ -30,7 +30,7 @@ print(PR3)
 
 #Processamento
 m = Maps(crs=Maps.CRS.Mercator.GOOGLE)
-m.set_extent((-72.0, -30.0, -35.0, -5.0))
+m.set_extent((-72.0, -30.0, -35.0, 0.0))
 
 #Batimetria
 m.add_gdf(contorno, column="DEPTH", legend=True)
